@@ -9,6 +9,435 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <style>
+        /* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Login Container */
+.login-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 700px;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Left Side - Brand & Info */
+.login-left {
+    flex: 1;
+    background: linear-gradient(145deg, #0f3460 0%, #1a1a2e 100%);
+    color: white;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.brand-logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.brand-logo i {
+    font-size: 64px;
+    color: #4ecca3;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.brand-logo h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #4ecca3, #00b7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-logo p {
+    font-size: 1rem;
+    opacity: 0.8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.login-illustration {
+    text-align: center;
+    margin: 40px 0;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(78, 204, 163, 0.2);
+}
+
+.login-illustration i {
+    font-size: 60px;
+    color: #4ecca3;
+    margin-bottom: 20px;
+}
+
+.login-illustration h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.login-illustration p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.feature:hover {
+    background: rgba(78, 204, 163, 0.1);
+    border-left-color: #4ecca3;
+    transform: translateX(5px);
+}
+
+.feature i {
+    color: #4ecca3;
+    font-size: 1.2rem;
+    margin-right: 15px;
+    width: 25px;
+}
+
+.feature span {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Right Side - Login Form */
+.login-right {
+    flex: 1.2;
+    background: #fff;
+    padding: 50px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.login-form-container {
+    max-width: 420px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.login-header h2 {
+    font-size: 2.5rem;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.login-header p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Form Styles */
+.login-form {
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+}
+
+.form-group label i {
+    margin-right: 10px;
+    color: #4ecca3;
+    font-size: 1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px 0;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+.password-input {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: #4ecca3;
+}
+
+.input-underline {
+    height: 2px;
+    background: #e0e0e0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.input-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #4ecca3;
+    transition: width 0.4s ease;
+}
+
+.form-group input:focus + .input-underline::after {
+    width: 100%;
+}
+
+/* Form Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    margin-right: 8px;
+    accent-color: #4ecca3;
+}
+
+.remember-me label {
+    font-size: 0.9rem;
+    color: #666;
+    cursor: pointer;
+}
+
+.forgot-password {
+    font-size: 0.9rem;
+    color: #4ecca3;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #00b7ff;
+    text-decoration: underline;
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(to right, #4ecca3, #00b7ff);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(78, 204, 163, 0.3);
+}
+
+.login-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(78, 204, 163, 0.4);
+}
+
+.login-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Login Footer */
+.login-footer {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.login-footer p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.credentials {
+    text-align: left;
+    background: rgba(78, 204, 163, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #4ecca3;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.credentials:hover {
+    background: rgba(78, 204, 163, 0.15);
+    transform: translateY(-2px);
+}
+
+.credentials strong {
+    color: #1a1a2e;
+}
+
+/* Login Message */
+.login-message {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 500;
+    display: none;
+}
+
+.login-message.error {
+    background: rgba(255, 87, 87, 0.1);
+    color: #ff5757;
+    border: 1px solid rgba(255, 87, 87, 0.2);
+}
+
+.login-message.success {
+    background: rgba(78, 204, 163, 0.1);
+    color: #4ecca3;
+    border: 1px solid rgba(78, 204, 163, 0.2);
+}
+
+/* Bottom Footer */
+.login-footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.login-footer-bottom p:first-child {
+    margin-bottom: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .login-container {
+        flex-direction: column;
+        height: auto;
+        max-width: 600px;
+    }
+    
+    .login-left, .login-right {
+        padding: 40px 30px;
+    }
+    
+    .login-left {
+        padding-bottom: 30px;
+    }
+    
+    .login-right {
+        padding-top: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .login-container {
+        border-radius: 15px;
+    }
+    
+    .login-left, .login-right {
+        padding: 30px 20px;
+    }
+    
+    .brand-logo i {
+        font-size: 50px;
+    }
+    
+    .brand-logo h1 {
+        font-size: 2.2rem;
+    }
+    
+    .login-header h2 {
+        font-size: 2rem;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+    </style>
     <div class="login-container">
         <div class="login-left">
             <div class="brand-logo">
