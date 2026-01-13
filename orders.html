@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Orders | ARM Taxi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #0f2027; --accent: #2c5364; --bg: #f4f7f6; --blue: #2563eb; }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); display: flex; }
+
+        /* Sidebar Styling */
+        .sidebar { width: 240px; height: 100vh; background: var(--primary); color: white; position: fixed; }
+        .sidebar-header { padding: 20px; text-align: center; border-bottom: 1px solid #ffffff22; font-weight: bold; }
+        .sidebar a { display: block; padding: 15px 25px; color: #adb5bd; text-decoration: none; }
+        .sidebar a.active { background: var(--accent); color: white; border-left: 4px solid #f39c12; }
+
+        /* Main Content */
+        .main { margin-left: 240px; width: 100%; padding: 30px; }
+        
+        /* Card Styling - Matching your Screenshot */
+        .order-card {
+            background: white;
+            max-width: 500px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .order-card h2 { color: var(--blue); margin-top: 0; font-size: 22px; }
+        .order-card p { margin: 8px 0; color: #333; }
+        .label { font-weight: bold; color: #000; min-width: 120px; display: inline-block; }
+        .highlight { color: #d32f2f; font-weight: bold; }
+        
+        .divider { border-top: 1px solid #eee; margin: 15px 0; }
+        .footer-note { font-style: italic; color: #666; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+            .main { margin-left: 0; padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="sidebar-header">ARM TAXI ADMIN</div>
+    <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="orders.html" class="active"><i class="fas fa-car"></i> View Orders</a>
+    <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+</div>
+
+<div class="main">
+    <h1 style="margin-bottom: 20px;">Booking Details</h1>
+
+    <div class="order-card">
+        <h2>Thanks for Choosing ARMTAXI ONEWAY CAB</h2>
+        
+        <p><span class="label">Booking ID:</span> 14920</p>
+        <p><span class="label">Name:</span> SHAF</p>
+        <p><span class="label">Email ID:</span> SHAFEEV608@GMAIL.COM</p>
+        <p><span class="label">Phone:</span> 9876543210</p>
+        <p><span class="label">Other:</span> +91 9876543210</p>
+        
+        <div class="divider"></div>
+
+        <p><span class="label">Pickup:</span> Thanjavur near Saliyamangalam Tamilnadu</p>
+        <p><span class="label">Drop:</span> Chennai airport</p>
+        
+        <div class="divider"></div>
+
+        <p><span class="label">Vehicle Type:</span> Only ETIOS</p>
+        <p><span class="label">Journey Type:</span> One Way</p>
+        <p><span class="label">Date & Time:</span> 20/11/2025 09:30 AM</p>
+        
+        <div class="divider"></div>
+
+        <p><span class="label">Trip Distance:</span> 290KM</p>
+        <p><span class="label">Total Fare:</span> <span class="highlight">₹4360</span></p>
+        <p class="footer-note">(Includes cab, fuel, and driver allowance)</p>
+        
+        <div class="divider"></div>
+
+        <p><span class="label">Extra per KM:</span> ₹ 14</p>
+        <p><span class="label">Toll Charges:</span> Extra (Approx. 350rs)</p>
+
+        <div class="divider" style="border-color: var(--blue);"></div>
+        
+        <p><strong>For Questions Contact:</strong></p>
+        <p>Regards By <strong>RAJA</strong></p>
+        <p style="font-weight: bold; color: var(--blue);">+91 9786543210</p>
+    </div>
+
+    <div class="order-card">
+        <h2>Thanks for Choosing ARMTAXI ONEWAY CAB</h2>
+        
+        <p><span class="label">Booking ID:</span> 14921</p>
+        <p><span class="label">Name:</span> SHAF</p>
+        <p><span class="label">Email ID:</span> SHAFEEV608@GMAIL.COM</p>
+        <p><span class="label">Phone:</span> 9876543210</p>
+        <p><span class="label">Other:</span> +91 9876543210</p>
+        
+        <div class="divider"></div>
+
+        <p><span class="label">Pickup:</span> Thanjavur near Saliyamangalam Tamilnadu</p>
+        <p><span class="label">Drop:</span> Chennai airport</p>
+        
+        <div class="divider"></div>
+
+        <p><span class="label">Vehicle Type:</span> Only ETIOS</p>
+        <p><span class="label">Journey Type:</span> Round Trip</p>
+        <p><span class="label">Date & Time:</span> 20/01/2026 09:30 AM</p>
+        
+        <div class="divider"></div>
+
+        <p><span class="label">Trip Distance:</span> 290KM</p>
+        <p><span class="label">Total Fare:</span> <span class="highlight">₹7500</span></p>
+        <p class="footer-note">(Includes cab, fuel, and driver allowance)</p>
+        
+        <div class="divider"></div>
+
+        <p><span class="label">Extra per KM:</span> ₹ 14</p>
+        <p><span class="label">Toll Charges:</span> Extra (Approx. 350rs)</p>
+
+        <div class="divider" style="border-color: var(--blue);"></div>
+        
+        <p><strong>For Questions Contact:</strong></p>
+        <p>Regards By <strong>RAJA</strong></p>
+        <p style="font-weight: bold; color: var(--blue);">+91 9786543210</p>
+    </div>
+    </div>
+
+<script>
+
+    function logout() {
+        localStorage.removeItem("arm_admin_logged_in");
+        location.replace("login.html");
+    }
+</script>
+
+</body>
+</html>

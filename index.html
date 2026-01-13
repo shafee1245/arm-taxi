@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARMTAXI OneWay Cab - Best Cab Booking Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Floating Contact Buttons - Updated positions -->
+    <div class="floating-contact">
+        <a href="https://wa.me/919342782038" class="float-btn whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+919894136801" class="float-btn phone-btn" aria-label="Call us">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-car logo-icon"></i>
+                    <span class="logo-text">ARM Taxi</span>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#booking">Booking</a>
+                    <a href="#tariff">Tariff</a>
+                    <a href="#info">Information</a>
+                    <a href="#about">About Us</a>
+                    <a href="login.html">Admin Login</a>
+                </div>
+                
+                <div class="header-actions">
+                    <button class="book-now-btn" onclick="scrollToBooking()">Book Now</button>
+                    
+                    <button class="mobile-menu-btn" aria-label="Toggle menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Get The Best Travel Experience With <span>ARMTAXI Oneway Cab</span></h1>
+                <p>At ARMTAXI, we pride ourselves on being Tamil Nadu's premier choice for reliable intercity car rentals. With a diverse fleet and transparent pricing, we ensure every journey is comfortable and convenient for our customers.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number animated-stat" id="stat1">150K</span>
+                        <span class="stat-label">Happy Travelers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number animated-stat" id="stat2">95.7%</span>
+                        <span class="stat-label">Satisfaction Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number animated-stat" id="stat3">5000+</span>
+                        <span class="stat-label">Tours Completed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-section" id="booking">
+        <div class="container">
+            <h2 class="section-title">Book Your Taxi</h2>
+            
+            <!-- Tabbed Booking Form with smooth slide transition -->
+            <div class="booking-tabs-container">
+                <div class="booking-tabs">
+                    <button class="tab-btn active" data-tab="one-way">
+                        <span>One Way</span>
+                    </button>
+                    <button class="tab-btn" data-tab="round-trip">
+                        <span>Round Trip</span>
+                    </button>
+                </div>
+                
+                <div class="booking-form-slider">
+                    <div class="form-slide active" id="one-way-form">
+                        <div class="booking-header">
+                            <h3><i class="fas fa-road"></i> Book Your One Way Taxi</h3>
+                        </div>
+                        
+                        <form id="oneWayForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="oneWayName">Full Name</label>
+                                    <input type="text" id="oneWayName" class="form-control" placeholder="Full Name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="oneWayMobile">Mobile Number</label>
+                                    <input type="tel" pattern="[0-9]{10}" maxlength="10" id="oneWayMobile" class="form-control" placeholder="Mobile Number" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="oneWayPickup">Pickup Address</label>
+                                <input type="text" id="oneWayPickup" class="form-control" placeholder="Pickup Location" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="oneWayDrop">Drop Address</label>
+                                <input type="text" id="oneWayDrop" class="form-control" placeholder="Drop Location" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="oneWayEmail">Email (optional)</label>
+                                <input type="email" id="oneWayEmail" class="form-control" placeholder="Email">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="oneWayDate">Pickup Date</label>
+                                    <input type="date" id="oneWayDate" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="oneWayTime">Pickup Time</label>
+                                    <input type="time" id="oneWayTime" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="oneWayVehicle">Please select cab type</label>
+                                <select id="oneWayVehicle" class="form-control" required>
+                                    <option value="">Select Vehicle Type</option>
+                                    <option value="sedan">Sedan (Swift Dzire, Etios, etc.)</option>
+                                    <option value="etios">Etios</option>
+                                    <option value="suv">SUV (Innova, Xylo, Ertiga)</option>
+                                    <option value="innova">Innova</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-car"></i> Book One Way Taxi
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="form-slide" id="round-trip-form">
+                        <div class="booking-header">
+                            <h3><i class="fas fa-exchange-alt"></i> Book Your Round Trip Taxi</h3>
+                        </div>
+                        
+                        <form id="roundTripForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="roundTripName">Full Name</label>
+                                    <input type="text" id="roundTripName" class="form-control" placeholder="Full Name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="roundTripMobile">Mobile Number</label>
+                                    <input type="tel" pattern="[0-9]{10}" maxlength="10" id="roundTripMobile" class="form-control" placeholder="Mobile Number" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="roundTripPickup">Pickup Address</label>
+                                <input type="text" id="roundTripPickup" class="form-control" placeholder="Pickup Location" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="roundTripDrop">Drop Address</label>
+                                <input type="text" id="roundTripDrop" class="form-control" placeholder="Drop Location" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="roundTripEmail">Email (optional)</label>
+                                <input type="email" id="roundTripEmail" class="form-control" placeholder="Email">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="roundTripDate">Pickup Date</label>
+                                    <input type="date" id="roundTripDate" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="roundTripTime">Pickup Time</label>
+                                    <input type="time" id="roundTripTime" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="roundTripReturnDate">Return Date</label>
+                                <input type="date" id="roundTripReturnDate" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="roundTripVehicle">Please select cab type</label>
+                                <select id="roundTripVehicle" class="form-control" required>
+                                    <option value="">Select Vehicle Type</option>
+                                    <option value="sedan">Sedan (Swift Dzire, Etios, etc.)</option>
+                                    <option value="etios">Etios</option>
+                                    <option value="suv">SUV (Innova, Xylo, Ertiga)</option>
+                                    <option value="innova">Innova</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-exchange-alt"></i> Book Round Trip Taxi
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tariff-section" id="tariff">
+        <div class="container">
+            <h2 class="section-title">Our Tariff</h2>
+            
+            <div class="tariff-container">
+                <div class="tariff-card">
+                    <div class="tariff-header">
+                        <h3>One Way Tariff</h3>
+                    </div>
+                    
+                    <table class="tariff-table">
+                        <thead>
+                            <tr>
+                                <th>Vehicle Type</th>
+                                <th>Rate/KM</th>
+                                <th>Driver Bata</th>
+                                <th>Additional Charge</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sedan</td>
+                                <td class="highlight">Rs.14/KM</td>
+                                <td>Rs.300</td>
+                                <td>One Way Toll</td>
+                            </tr>
+                            <tr>
+                                <td>Etios</td>
+                                <td class="highlight">Rs.15/KM</td>
+                                <td>Rs.300</td>
+                                <td>One Way Toll</td>
+                            </tr>
+                            <tr>
+                                <td>SUV</td>
+                                <td class="highlight">Rs.19/KM</td>
+                                <td>Rs.400</td>
+                                <td>One Way Toll</td>
+                            </tr>
+                            <tr>
+                                <td>Innova</td>
+                                <td class="highlight">Rs.20/KM</td>
+                                <td>Rs.400</td>
+                                <td>One Way Toll</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="tariff-card">
+                    <div class="tariff-header">
+                        <h3>Round Trip Tariff</h3>
+                    </div>
+                    
+                    <table class="tariff-table">
+                        <thead>
+                            <tr>
+                                <th>Vehicle Type</th>
+                                <th>Rate/KM</th>
+                                <th>Driver Bata</th>
+                                <th>Additional Charge</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sedan</td>
+                                <td class="highlight">Rs.13/KM</td>
+                                <td>Rs.300</td>
+                                <td>Two Way Toll</td>
+                            </tr>
+                            <tr>
+                                <td>Etios</td>
+                                <td class="highlight">Rs.14/KM</td>
+                                <td>Rs.300</td>
+                                <td>Two Way Toll</td>
+                            </tr>
+                            <tr>
+                                <td>SUV</td>
+                                <td class="highlight">Rs.18/KM</td>
+                                <td>Rs.400</td>
+                                <td>Two Way Toll</td>
+                            </tr>
+                            <tr>
+                                <td>Innova</td>
+                                <td class="highlight">Rs.19/KM</td>
+                                <td>Rs.400</td>
+                                <td>Two Way Toll</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section" id="info">
+        <div class="container">
+            <h2 class="section-title">Customer Information</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-car info-icon"></i>
+                    <h3>Vehicle Information</h3>
+                    <ul class="info-list">
+                        <li>Any sedan available: Swift Dzire, Toyota Etios, Tata Zest, Hyundai Xcent, Nissan Sunny - one will be assigned</li>
+                        <li>Any SUV available: Innova, Xylo, Ertiga - one will be assigned</li>
+                        <li>Maximum 4 passenger capacity for Sedan</li>
+                        <li>Maximum 7 passenger capacity for SUV</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <i class="fas fa-map-marked-alt info-icon"></i>
+                    <h3>Trip Requirements</h3>
+                    <ul class="info-list">
+                        <li>Minimum 130km coverage for one-way trip</li>
+                        <li>Minimum 250km coverage for round trip</li>
+                        <li>For Bangalore, minimum 300km per day in a round trip</li>
+                        <li>One-day round trip ends by 11pm at your pickup location</li>
+                        <li>1 day means 1 calendar day (from midnight 12 to next midnight 12)</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <i class="fas fa-file-invoice-dollar info-icon"></i>
+                    <h3>Charges & Policies</h3>
+                    <ul class="info-list">
+                        <li>Waiting charges: Rs. 150 per hour during your trip</li>
+                        <li>No waiting charges for food breaks, tea breaks, and restroom stops</li>
+                        <li>Cancellation charges: Rs. 300 after the driver has arrived</li>
+                        <li>Luggage loading in carrier: Rs. 300 if mentioned in the quotation</li>
+                        <li>Permit charges and driver bata are as quoted</li>
+                        <li>Toll charges paid through Fastag by the driver</li>
+                        <li>Payment via online transfer or cash</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About ARMTaxi</h2>
+                    <p>At ARM Taxi, we pride ourselves on being Tamil Nadu's premier choice for reliable intercity car rentals. With a diverse fleet comprising sedans like Swift Dzire, Toyota Etios, Tata Zest, Hyundai Xcent, and Nissan Sunny, as well as SUVs including Innova, Xylo, and Ertiga, we ensure that every journey is comfortable and convenient for our customers.</p>
+                    <p>Our vehicles are meticulously maintained to offer a clean and pleasant travel experience. We prioritize customer satisfaction by providing transparent billing, courteous drivers, and attractive rates.</p>
+                    <p>Whether it's a one-way trip with a minimum coverage of 130km or a round trip with a minimum coverage of 250km, we guarantee a seamless journey from start to finish. With flexible payment options, efficient handling of toll charges via Fastag, and clear policies on waiting charges and cancellations, Droptaxi is committed to making your travel hassle-free and enjoyable.</p>
+                    
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <span class="number">150k</span>
+                            <span class="label">Happy Travelers</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="number">95.7%</span>
+                            <span class="label">Satisfaction Rate</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="number">5000+</span>
+                            <span class="label">Tours Completed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-car"></i>
+                        <h3>ARMTaxi</h3>
+                    </div>
+                    <table>
+                        <ul>
+                                <li>Ariyalur</li>
+                                <li>Chengalpattu</li>
+                                <li>Chennai</li>
+                                <li>Coimbatore</li>
+                                <li>Dharmapuri</li>
+                                <li>Ranipet</li>
+                                <li>Dindigul</li>
+                                <li>Erode</li>
+                                <li>Cuddalore</li>
+                                <li>Kancheepuram</li>
+                                <li>Kallakurichi</li>
+                                <li>Kanniyakumari</li>
+                                <li>Mayiladuthurai</li>
+                                <li>Karur</li>
+                                <li>Krishnagiri</li>
+                                <li>Madurai</li>
+                        </ul>
+                        </td>
+                    </table>                
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#booking">Book Taxi</a></li>
+                        <li><a href="#tariff">Tariff</a></li>
+                        <li><a href="#info">Information</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+91 98941 36801</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>armdroptaxi73@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Tamil Nadu, India</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 ARMTAXI OneWay Cab. All rights reserved. | Best One Way Taxi Booking Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
